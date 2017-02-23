@@ -17,6 +17,7 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
+        Font.setGlobalFont(this, getWindow().getDecorView());
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -32,7 +33,7 @@ public class SplashActivity extends Activity {
             public void run() {
                 Intent loginIntent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(loginIntent);
-                finish();       // 3 초후 이미지를 닫아버림
+                finish();       // 2 초후 이미지를 닫아버림
             }
         }, 2000);
 

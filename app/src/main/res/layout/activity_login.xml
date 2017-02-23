@@ -28,14 +28,22 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:src="@drawable/logo"/>
+        <Space
+            android:layout_weight="0.4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
         <ImageView
             android:layout_width="50dp"
-            android:layout_height="4dp"
+            android:layout_height="2dp"
             android:background="@color/white"/>
+        <Space
+            android:layout_weight="0.4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:text="소통의 연결고리"/>
@@ -51,52 +59,37 @@
         android:orientation="vertical"
         android:weightSum="2">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="5">
-
             <EditText
+                android:textCursorDrawable="@drawable/login_cursor"
                 android:textColor="@color/white"
-                android:id="@+id/idText"
+                android:id="@+id/id"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="3dp"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:hint="아이디"
-                android:textColorHint="@color/colorPrimary" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:weightSum="5">
+                android:textColorHint="@color/white" />
 
             <EditText
+                android:textCursorDrawable="@drawable/login_cursor"
                 android:textColor="@color/white"
-                android:id="@+id/passText"
+                android:id="@+id/pw"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="3dp"
                 android:layout_marginTop="3dp"
-                android:layout_weight="3"
+                android:layout_weight="1"
                 android:hint="비밀번호"
                 android:inputType="textPassword"
-                android:textColorHint="@color/colorPrimary" />
-        </LinearLayout>
+                android:textColorHint="@color/white" />
 
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/loginbtn"
+        android:id="@+id/login"
         android:text="로그인"
-        android:textStyle="bold"
         android:textSize="20dp"
         android:textColor="@color/white"
         android:background="@drawable/login_btn"
@@ -109,6 +102,8 @@
         android:layout_height="0dp"
         android:layout_weight="2" />
     <TextView
+        android:id="@+id/register"
+        android:textColor="@color/white"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

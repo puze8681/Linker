@@ -20,7 +20,7 @@ public class Font {
                 for (int i = 0; i < len; i++) {
                     View v = vg.getChildAt(i);
                     if (v instanceof TextView) {
-                        ((TextView) v).setTypeface(Typeface.createFromAsset(context.getAssets(), "Roboto-Regular.ttf"));
+                        ((TextView) v).setTypeface(Typeface.createFromAsset(context.getAssets(), "NanumBarunGothic.otf"));
                     }
                     setGlobalFont(context, v);
                 }
