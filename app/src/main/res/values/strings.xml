@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Linker</string>
+    <string name="register">회원가입<u>underline</u>.</string>
 </resources>
