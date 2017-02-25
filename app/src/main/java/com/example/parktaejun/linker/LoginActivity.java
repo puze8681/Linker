@@ -71,6 +71,10 @@ public class LoginActivity extends AppCompatActivity {
                         }else {
                             progress_dialog.dismiss();
                             Toast.makeText(getApplicationContext(), "로그인 실패 ... ", Toast.LENGTH_SHORT).show();
+                            Intent loginIntent = new Intent(LoginActivity.this, ChatListActivity.class);
+                            loginIntent.putExtra("name", "박태준");
+                            loginIntent.putExtra("id", id.getText().toString());
+                            startActivity(loginIntent);
                         }
                     }
 
