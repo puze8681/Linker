@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.parktaejun.linker.Data.ChatList;
@@ -46,12 +47,14 @@ public class AdapterChatList extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view = null;
+
+        View view = LayoutInflater.from(context).inflate(R.layout.chat, null);
+        LinearLayout container = (LinearLayout) view.findViewById(R.id.container);
+
         if(position == 0){
             view = LayoutInflater.from(context).inflate(R.layout.item_top, null);
         }else {
             view = LayoutInflater.from(context).inflate(R.layout.item_firend, null);
-            ImageView image = (ImageView) view.findViewById(R.id.image);
             TextView name = (TextView) view.findViewById(R.id.name);
             name.setText(items.get(position).getName());
         }

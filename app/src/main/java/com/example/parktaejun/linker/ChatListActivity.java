@@ -26,9 +26,9 @@ import retrofit2.Retrofit;
 public class ChatListActivity extends AppCompatActivity {
 
 
-    private ListView listview;
-    private AdapterChatList adapterChatList;
-    public static List<ChatList> items = new ArrayList<>();
+    ListView listview;
+    AdapterChatList adapterChatList;
+    List<ChatList> items = new ArrayList<>();
     TextView name;
     TextView id;
     Retrofit retrofit;
@@ -43,14 +43,33 @@ public class ChatListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         name.setText(intent.getExtras().getString("name"));
         id.setText("@" + intent.getExtras().getString("id"));
+        listview = (ListView) findViewById(R.id.chat_list);
 
         CircularImageView circularImageView = (CircularImageView)findViewById(R.id.image);
         circularImageView.setBorderColor(getResources().getColor(R.color.white));
         circularImageView.setBorderWidth(5);
 
         items.add(new ChatList("박태준"));
+        items.add(new ChatList("박태준1"));
+        items.add(new ChatList("박태준2"));
+        items.add(new ChatList("박태준3"));
+        items.add(new ChatList("박태준4"));
+        items.add(new ChatList("박태준5"));
+        items.add(new ChatList("박태준6"));
+        items.add(new ChatList("박태준7"));
+        items.add(new ChatList("박태준"));
+        items.add(new ChatList("박태준1"));
+        items.add(new ChatList("박태준2"));
+        items.add(new ChatList("박태준3"));
+        items.add(new ChatList("박태준4"));
+        items.add(new ChatList("박태준5"));
+        items.add(new ChatList("박태준6"));
+        items.add(new ChatList("박태준7"));
+
+        adapterChatList = new AdapterChatList(this, items);
+        adapterChatList.notifyDataSetChanged();
         listview.setAdapter(adapterChatList);
-        loadList();
+//        loadList();
 
         listview.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
@@ -65,30 +84,30 @@ public class ChatListActivity extends AppCompatActivity {
         );
     }
 
-    public void initList(String name){
-        items.add(new ChatList(name));
-        adapterChatList.notifyDataSetChanged();
-    }
-
-    public void loadList(){
-        final JSONService loadPost = retrofit.create(JSONService.class);
-        Call<List<User>> call = loadPost.loadlist();
-        call.enqueue(new Callback<List<User>>() {
-
-            @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                if(response.code() == 200){
-                    List<User> users = response.body();
-                    for(User user : users){
-                        initList(user.user_name);
-                    }
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "요청 실패 ...", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+//    public void initList(String name){
+//        items.add(new ChatList(name));
+//        adapterChatList.notifyDataSetChanged();
+//    }
+//
+//    public void loadList(){
+//        final JSONService loadPost = retrofit.create(JSONService.class);
+//        Call<List<User>> call = loadPost.loadlist();
+//        call.enqueue(new Callback<List<User>>() {
+//
+//            @Override
+//            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+//                if(response.code() == 200){
+//                    List<User> users = response.body();
+//                    for(User user : users){
+//                        initList(user.user_name);
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<User>> call, Throwable t) {
+//                Toast.makeText(getApplicationContext(), "요청 실패 ...", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 }
