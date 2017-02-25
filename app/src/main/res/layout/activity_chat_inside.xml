@@ -19,6 +19,7 @@
     </android.support.v7.widget.Toolbar>
 
     <ListView
+        android:transcriptMode="alwaysScroll"
         android:background="#ebebeb"
         android:id="@+id/chatting_list"
         android:layout_width="match_parent"
