@@ -47,50 +47,45 @@ public class LoginActivity extends AppCompatActivity {
         retrofit = new Retrofit.Builder().baseUrl("http://nh.applepi.kr").addConverterFactory(GsonConverterFactory.create()).build();
         final JSONService service = retrofit.create(JSONService.class);
 
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginIntent = new Intent(LoginActivity.this, ChatListActivity.class);
-                                loginIntent.putExtra("name", "박태준");
+                progress_dialog = new ProgressDialog(LoginActivity.this);
+                progress_dialog.setMessage("로그인 중입니다 ... ");
+                progress_dialog.show();
+
+                Call<User> call = service.login(id.getText().toString(), pw.getText().toString());
+                call.enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        if(response.code() == 200){
+                            User user = response.body();
+                            if(user != null){
+                                Toast.makeText(getApplicationContext(), "로그인 성공 ... ", Toast.LENGTH_SHORT).show();
+                                Intent loginIntent = new Intent(LoginActivity.this, ChatListActivity.class);
+                                loginIntent.putExtra("name", user.user_name);
                                 loginIntent.putExtra("id", id.getText().toString());
                                 startActivity(loginIntent);
+                            }
+                        }else {
+                            progress_dialog.dismiss();
+                            Toast.makeText(getApplicationContext(), "로그인 실패 ... ", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        progress_dialog.dismiss();
+                        Toast.makeText(getApplicationContext(), "요청 실패 ... ", Toast.LENGTH_SHORT).show();
+                        Intent loginIntent = new Intent(LoginActivity.this, ChatListActivity.class);
+                        loginIntent.putExtra("name", "박태준");
+                        loginIntent.putExtra("id", id.getText().toString());
+                        startActivity(loginIntent);
+                    }
+                });
             }
         });
-
-//        login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                progress_dialog = new ProgressDialog(LoginActivity.this);
-//                progress_dialog.setMessage("로그인 중입니다 ... ");
-//                progress_dialog.show();
-//
-//                Call<User> call = service.login(id.getText().toString(), pw.getText().toString());
-//                call.enqueue(new Callback<User>() {
-//                    @Override
-//                    public void onResponse(Call<User> call, Response<User> response) {
-//                        if(response.code() == 200){
-//                            User user = response.body();
-//                            if(user != null){
-//                                Toast.makeText(getApplicationContext(), "로그인 성공 ... ", Toast.LENGTH_SHORT).show();
-//                                Intent loginIntent = new Intent(LoginActivity.this, ChatListActivity.class);
-//                                loginIntent.putExtra("name", user.user_name);
-//                                loginIntent.putExtra("id", id.getText().toString());
-//                                startActivity(loginIntent);
-//                            }
-//                        }else {
-//                            progress_dialog.dismiss();
-//                            Toast.makeText(getApplicationContext(), "로그인 실패 ... ", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<User> call, Throwable t) {
-//                        progress_dialog.dismiss();
-//                        Toast.makeText(getApplicationContext(), "요청 실패 ... ", Toast.LENGTH_SHORT).show();
-//                    }
-//                });
-//            }
-//        });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
