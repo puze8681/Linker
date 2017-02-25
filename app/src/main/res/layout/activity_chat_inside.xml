@@ -8,51 +8,48 @@
     android:orientation="vertical"
     android:weightSum="10"
     tools:context="com.example.parktaejun.linker.ChatInsideActivity">
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         app:theme="@style/ThemeOverlay.AppCompat.Light"
-        android:background="@color/green"
+        android:background="#36b37d"
         android:titleTextColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize">
     </android.support.v7.widget.Toolbar>
+
     <ListView
+        android:background="#ebebeb"
         android:id="@+id/chatting_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="9">
+        android:layout_weight="10">
     </ListView>
 
     <LinearLayout
-        android:layout_weight="1"
-        android:weightSum="13"
+        android:weightSum="15"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/gray">
+        android:layout_height="56dp"
+        android:background="#ebebeb">
         <EditText
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="5dp"
+            android:paddingLeft="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="7dp"
             android:layout_marginBottom="7dp"
-            android:layout_weight="11"
+            android:layout_weight="13"
             android:id="@+id/text"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:hint="채팅"
             android:textSize="15sp"
             android:textColor="#000000"
             android:textCursorDrawable="@drawable/chat_cursor"
             android:background="#ffffff"/>
         <Button
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_margin="10dp"
             android:layout_weight="2"
-            android:text="전송"
             android:textColor="@color/colorPrimary"
-            android:background="@mipmap/ic_launcher"
+            android:background="@drawable/chat_back"
             android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="match_parent"

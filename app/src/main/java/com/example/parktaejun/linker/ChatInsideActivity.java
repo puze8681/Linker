@@ -27,6 +27,7 @@ import java.util.List;
 public class ChatInsideActivity extends AppCompatActivity {
 
     Button button;
+    EditText edit;
     private ListView listview;
     private List<JSONObject> items = new ArrayList<>();
     private AdapterChatInside adapterChatInside;
@@ -37,6 +38,7 @@ public class ChatInsideActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_inside);
         Font.setGlobalFont(this, getWindow().getDecorView());
 
+        edit = (EditText)findViewById(R.id.text);
         button = (Button)findViewById(R.id.button);
         Intent intent = getIntent();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -67,7 +69,6 @@ public class ChatInsideActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText edit = (EditText)findViewById(R.id.text);
                 String msg = edit.getText().toString();
                 mSocket.emit("chat message", msg);
                 JSONObject json = new JSONObject();

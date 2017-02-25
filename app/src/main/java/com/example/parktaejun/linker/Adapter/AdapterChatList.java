@@ -31,7 +31,7 @@ public class AdapterChatList extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return items.size();
     }
 
     @Override
@@ -47,10 +47,7 @@ public class AdapterChatList extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-
-        View view = LayoutInflater.from(context).inflate(R.layout.chat, null);
-        LinearLayout container = (LinearLayout) view.findViewById(R.id.container);
-
+        View view;
         if(position == 0){
             view = LayoutInflater.from(context).inflate(R.layout.item_top, null);
         }else {

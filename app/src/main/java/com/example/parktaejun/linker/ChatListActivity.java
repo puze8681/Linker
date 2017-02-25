@@ -3,6 +3,7 @@ package com.example.parktaejun.linker;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -43,12 +44,27 @@ public class ChatListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         name.setText(intent.getExtras().getString("name"));
         id.setText("@" + intent.getExtras().getString("id"));
+        Log.d("TAG", "1");
+
         listview = (ListView) findViewById(R.id.chat_list);
 
         CircularImageView circularImageView = (CircularImageView)findViewById(R.id.image);
         circularImageView.setBorderColor(getResources().getColor(R.color.white));
         circularImageView.setBorderWidth(5);
 
+        Log.d("TAG", "2");
+
+        items.add(new ChatList("박태준"));
+        Log.d("TAG", "3");
+        items.add(new ChatList("박태준1"));
+        Log.d("TAG", "4");
+        items.add(new ChatList("박태준2"));
+        items.add(new ChatList("박태준3"));
+        items.add(new ChatList("박태준4"));
+        items.add(new ChatList("박태준5"));
+        items.add(new ChatList("박태준6"));
+        items.add(new ChatList("박태준7"));
+        Log.d("TAG", "5");
         items.add(new ChatList("박태준"));
         items.add(new ChatList("박태준1"));
         items.add(new ChatList("박태준2"));
@@ -57,18 +73,13 @@ public class ChatListActivity extends AppCompatActivity {
         items.add(new ChatList("박태준5"));
         items.add(new ChatList("박태준6"));
         items.add(new ChatList("박태준7"));
-        items.add(new ChatList("박태준"));
-        items.add(new ChatList("박태준1"));
-        items.add(new ChatList("박태준2"));
-        items.add(new ChatList("박태준3"));
-        items.add(new ChatList("박태준4"));
-        items.add(new ChatList("박태준5"));
-        items.add(new ChatList("박태준6"));
-        items.add(new ChatList("박태준7"));
+        Log.d("TAG", "6");
 
         adapterChatList = new AdapterChatList(this, items);
-        adapterChatList.notifyDataSetChanged();
+        Log.d("TAG", "7");
         listview.setAdapter(adapterChatList);
+        Log.d("TAG", items.get(5).getName());
+
 //        loadList();
 
         listview.setOnItemClickListener(
