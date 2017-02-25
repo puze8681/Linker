@@ -61,6 +61,8 @@ public class LoginActivity extends AppCompatActivity {
                             if(user != null){
                                 Toast.makeText(getApplicationContext(), "로그인 성공 ... ", Toast.LENGTH_SHORT).show();
                                 Intent loginIntent = new Intent(LoginActivity.this, ChatListActivity.class);
+                                loginIntent.putExtra("name", user.user_name);
+                                loginIntent.putExtra("id", id.getText().toString());
                                 startActivity(loginIntent);
                             }
                         }else {
