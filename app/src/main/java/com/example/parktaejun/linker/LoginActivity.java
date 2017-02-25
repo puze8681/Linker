@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
                         progress_dialog.dismiss();
-                        Toast.makeText(getApplicationContext(), "요청 불가 ... ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "요청 실패 ... ", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

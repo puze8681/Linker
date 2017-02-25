@@ -77,7 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "요청을 전송할 수 없습니다 ... ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "요청 실패 ... ", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });

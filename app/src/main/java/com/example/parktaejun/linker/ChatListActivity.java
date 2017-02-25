@@ -37,7 +37,7 @@ public class ChatListActivity extends AppCompatActivity {
         name.setText(intent.getExtras().getString("name"));
         id.setText("@" + intent.getExtras().getString("id"));
         items.add(new ChatList("박태준"));
-
+        loadList();
     }
 
     public void initList(String name){
@@ -45,28 +45,25 @@ public class ChatListActivity extends AppCompatActivity {
         adapterChatList.notifyDataSetChanged();
     }
 
-    public void loadPost(){
+    public void loadList(){
         final JSONService loadPost = retrofit.create(JSONService.class);
         Call<List<User>> call = loadPost.loadlist();
         call.enqueue(new Callback<List<User>>() {
 
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-
+                if(response.code() == 200){
+                    List<User> users = response.body();
+                    for(User user : users){
+                        initList(user.user_name);
+                    }
+                }
             }
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(), "요청 실패 ...", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    public void onRefresh() {
-        items.clear();
-        loadPost();
-        mBaseLayout.setRefreshing(false);
-
     }
 }
