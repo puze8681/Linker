@@ -21,6 +21,7 @@ public class Font {
                     View v = vg.getChildAt(i);
                     if (v instanceof TextView) {
                         ((TextView) v).setTypeface(Typeface.createFromAsset(context.getAssets(), "NanumBarunGothic.otf"));
+                        //Project -> app -> src -> main -> assets 폴더 생성 후에 폰트 파일 넣어줌
                     }
                     setGlobalFont(context, v);
                 }

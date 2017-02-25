@@ -18,17 +18,17 @@ public class SplashActivity extends Activity {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         Font.setGlobalFont(this, getWindow().getDecorView());
+        //폰트 설정
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        //전체화면 만들기
 
         setContentView(R.layout.activity_splash);
 
 
         Handler hd = new Handler();
         hd.postDelayed(new Runnable() {
-
             @Override
             public void run() {
                 Intent loginIntent = new Intent(SplashActivity.this, LoginActivity.class);

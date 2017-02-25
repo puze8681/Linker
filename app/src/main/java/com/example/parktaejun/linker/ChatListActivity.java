@@ -44,27 +44,15 @@ public class ChatListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         name.setText(intent.getExtras().getString("name"));
         id.setText("@" + intent.getExtras().getString("id"));
-        Log.d("TAG", "1");
+        //자기 프로필 name과 id에 putExtra로 넣어준 데이터를 getExtra로 받아서 넣어줌
 
         listview = (ListView) findViewById(R.id.chat_list);
 
         CircularImageView circularImageView = (CircularImageView)findViewById(R.id.image);
         circularImageView.setBorderColor(getResources().getColor(R.color.white));
         circularImageView.setBorderWidth(5);
+        //자기 프로필 사진 원으로 자르고 하얀색 원테두리 생성
 
-        Log.d("TAG", "2");
-
-        items.add(new ChatList("박태준"));
-        Log.d("TAG", "3");
-        items.add(new ChatList("박태준1"));
-        Log.d("TAG", "4");
-        items.add(new ChatList("박태준2"));
-        items.add(new ChatList("박태준3"));
-        items.add(new ChatList("박태준4"));
-        items.add(new ChatList("박태준5"));
-        items.add(new ChatList("박태준6"));
-        items.add(new ChatList("박태준7"));
-        Log.d("TAG", "5");
         items.add(new ChatList("박태준"));
         items.add(new ChatList("박태준1"));
         items.add(new ChatList("박태준2"));
@@ -73,12 +61,17 @@ public class ChatListActivity extends AppCompatActivity {
         items.add(new ChatList("박태준5"));
         items.add(new ChatList("박태준6"));
         items.add(new ChatList("박태준7"));
-        Log.d("TAG", "6");
+        items.add(new ChatList("박태준"));
+        items.add(new ChatList("박태준1"));
+        items.add(new ChatList("박태준2"));
+        items.add(new ChatList("박태준3"));
+        items.add(new ChatList("박태준4"));
+        items.add(new ChatList("박태준5"));
+        items.add(new ChatList("박태준6"));
+        items.add(new ChatList("박태준7"));
 
         adapterChatList = new AdapterChatList(this, items);
-        Log.d("TAG", "7");
         listview.setAdapter(adapterChatList);
-        Log.d("TAG", items.get(5).getName());
 
 //        loadList();
 
@@ -93,6 +86,7 @@ public class ChatListActivity extends AppCompatActivity {
                     }
                 }
         );
+        //listview 클릭하면 나오는 이벤트
     }
 
 //    public void initList(String name){

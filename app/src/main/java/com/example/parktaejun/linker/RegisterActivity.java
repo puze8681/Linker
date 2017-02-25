@@ -36,6 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         Font.setGlobalFont(this, getWindow().getDecorView());
+        //폰트 설정
 
         id = (TextView)findViewById(R.id.id);
         pw = (TextView)findViewById(R.id.pw);
@@ -46,10 +47,13 @@ public class RegisterActivity extends AppCompatActivity {
         id.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
         pw.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
         name.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
-
+        //EditText 밑줄 색 바꾸는 코드
 
         retrofit = new Retrofit.Builder().baseUrl("http://nh.applepi.kr").addConverterFactory(GsonConverterFactory.create()).build();
+        //레트로핏에 메인주소 연결
+
         final JSONService service = retrofit.create(JSONService.class);
+        //JSONService 를 상속받은 service 변수 생성, 레트로핏과 연결
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -60,6 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
         ImageView back = (ImageView) toolbar_view.findViewById(R.id.back);
         title.setText("회원가입");
         getSupportActionBar().setCustomView(toolbar_view);
+        //툴바 설정 코드
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +92,7 @@ public class RegisterActivity extends AppCompatActivity {
                 });
             }
         });
+        //회원가입 서버 연동
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

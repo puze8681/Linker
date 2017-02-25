@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Font.setGlobalFont(this, getWindow().getDecorView());
+        //폰트 설정
 
         id = (TextView)findViewById(R.id.id);
         pw = (TextView)findViewById(R.id.pw);
@@ -43,10 +44,13 @@ public class LoginActivity extends AppCompatActivity {
         int color = Color.parseColor("#ffffff");
         id.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
         pw.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
+        //EditText 밑줄 색 바꾸는 코드
 
         retrofit = new Retrofit.Builder().baseUrl("http://nh.applepi.kr").addConverterFactory(GsonConverterFactory.create()).build();
-        final JSONService service = retrofit.create(JSONService.class);
+        //레트로핏에 메인주소 연결
 
+        final JSONService service = retrofit.create(JSONService.class);
+        //JSONService 를 상속받은 service 변수 생성, 레트로핏과 연결
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
+        //로그인 서버 연동
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,5 +103,6 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(registerIntent);
             }
         });
+        //회원가입 버튼
     }
 }
