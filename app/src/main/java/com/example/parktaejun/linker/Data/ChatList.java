@@ -1,4 +1,4 @@
-package com.example.parktaejun.linker;
+package com.example.parktaejun.linker.Data;
 
 /**
  * Created by parktaejun on 2017. 2. 25..

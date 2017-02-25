@@ -1,4 +1,4 @@
-package com.example.parktaejun.linker;
+package com.example.parktaejun.linker.Server;
 
 import java.util.List;
 
@@ -24,4 +24,12 @@ public interface JSONService {
     @FormUrlEncoded
     @POST("/loadlist")
     Call<List<User>> loadlist();
+
+    @FormUrlEncoded
+    @POST("/savechat")
+    Call<Chat> save(@Field("roomnumber") String room, @Field("who") String who, @Field("msg") String msg);
+
+    @FormUrlEncoded
+    @POST("/loadlist")
+    Call<List<Chat>> loadchat();
 }

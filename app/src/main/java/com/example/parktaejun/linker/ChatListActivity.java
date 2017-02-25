@@ -3,10 +3,16 @@ package com.example.parktaejun.linker;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.util.SortedList;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.parktaejun.linker.Adapter.AdapterChatList;
+import com.example.parktaejun.linker.Data.ChatList;
+import com.example.parktaejun.linker.Server.JSONService;
+import com.example.parktaejun.linker.Server.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +43,20 @@ public class ChatListActivity extends AppCompatActivity {
         name.setText(intent.getExtras().getString("name"));
         id.setText("@" + intent.getExtras().getString("id"));
         items.add(new ChatList("박태준"));
+        listview.setAdapter(adapterChatList);
         loadList();
+
+        listview.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                        String chat_name = items.get(i).getName();
+                        Intent chatIntent = new Intent(ChatListActivity.this, ChatInsideActivity.class);
+                        chatIntent.putExtra("chatName", chat_name);
+                        startActivity(chatIntent);
+                    }
+                }
+        );
     }
 
     public void initList(String name){

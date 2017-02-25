@@ -14,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.parktaejun.linker.Server.JSONService;
+import com.example.parktaejun.linker.Server.User;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

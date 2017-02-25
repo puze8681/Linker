@@ -6,11 +6,13 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.util.SortedList;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.parktaejun.linker.Server.JSONService;
+import com.example.parktaejun.linker.Server.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
