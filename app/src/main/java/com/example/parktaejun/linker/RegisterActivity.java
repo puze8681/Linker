@@ -30,7 +30,6 @@ public class RegisterActivity extends AppCompatActivity {
     TextView name;
     Button register;
     Retrofit retrofit;
-    ProgressDialog progress_dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +45,8 @@ public class RegisterActivity extends AppCompatActivity {
         int color = Color.parseColor("#319A7E");
         id.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
         pw.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
+        name.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
+
 
         retrofit = new Retrofit.Builder().baseUrl("http://nh.applepi.kr").addConverterFactory(GsonConverterFactory.create()).build();
         final JSONService service = retrofit.create(JSONService.class);

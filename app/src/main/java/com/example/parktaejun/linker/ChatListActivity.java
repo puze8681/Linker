@@ -13,6 +13,7 @@ import com.example.parktaejun.linker.Adapter.AdapterChatList;
 import com.example.parktaejun.linker.Data.ChatList;
 import com.example.parktaejun.linker.Server.JSONService;
 import com.example.parktaejun.linker.Server.User;
+import com.mikhaellopez.circularimageview.CircularImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,11 @@ public class ChatListActivity extends AppCompatActivity {
         Intent intent = getIntent();
         name.setText(intent.getExtras().getString("name"));
         id.setText("@" + intent.getExtras().getString("id"));
+
+        CircularImageView circularImageView = (CircularImageView)findViewById(R.id.image);
+        circularImageView.setBorderColor(getResources().getColor(R.color.white));
+        circularImageView.setBorderWidth(5);
+
         items.add(new ChatList("박태준"));
         listview.setAdapter(adapterChatList);
         loadList();

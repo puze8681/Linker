@@ -36,7 +36,7 @@
             android:layout_marginTop="7dp"
             android:layout_marginBottom="7dp"
             android:layout_weight="11"
-            android:id="@+id/chatting_text"
+            android:id="@+id/text"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:hint="채팅"
@@ -53,7 +53,7 @@
             android:text="전송"
             android:textColor="@color/colorPrimary"
             android:background="@mipmap/ic_launcher"
-            android:id="@+id/sendButton"
+            android:id="@+id/button"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             />
